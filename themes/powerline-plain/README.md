@@ -7,6 +7,8 @@ A colorful theme, where shows a lot information about your shell session.
 * Current path
 * Current username and hostname
 * Current time
+* Current history number
+* Current command number
 * An indicator when connected by SSH
 * An indicator when `sudo` has the credentials cached (see the `sudo` manpage for more info about this)
 * An indicator when the current shell is inside the Vim editor
@@ -56,6 +58,8 @@ The contents of the prompt can be "reordered", all the "segments" (every piece o
 * `user_info` - Current user
 * `wd` - Working directory, like `cwd` but doesn't show the full folder
   hierarchy, only the directory you're currently in.
+* `history_number` - Show current history number
+* `command_number` - Show current command number
 
 A variable can be defined to set the order of the prompt segments:
 
