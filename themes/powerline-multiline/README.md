@@ -56,7 +56,7 @@ The contents of both prompt sides can be "reordered", all the "segments" (every 
 * `python_venv` - Python virtual environment information (`virtualenv`, `venv`
   and `conda` supported)
 * `ruby` - Current ruby version if using `rvm`
-* `scm` - Version control information, `git` 
+* `scm` - Version control information, `git`
 * `user_info` - Current user
 * `wd` - Working directory, like `cwd` but doesn't show the full folder
   hierarchy, only the directory you're currently in.
@@ -81,3 +81,25 @@ This can be done by setting the `POWERLINE_PADDING` variable before Bash-it is l
 ```bash
 export POWERLINE_PADDING=3
 ```
+
+### Compact Settings
+
+You can configure various aspects of the prompt to use less whitespace. Supported variables are:
+
+| Variable                             | Description
+|--------------------------------------|------------
+|POWERLINE_COMPACT_BEFORE_SEPARATOR    | Removes the leading space before each separator
+|POWERLINE_COMPACT_AFTER_SEPARATOR     | Removes the trailing space after each separator
+|POWERLINE_COMPACT_BEFOR_FIRST_SEGMENT | Removes the leading space on the first segment
+|POWERLINE_COMPACT_AFTER_LAST_SEGMENT  | Removes the trailing space on the last segment
+|POWERLINE_COMPACT_PROMPT              | Removes the space after the prompt character
+|POWERLINE_COMPACT                     | Enable all Compact settings (you can still override individual settings)
+
+The default value for all settings is `0` (disabled). Use `1` to enable.
+
+**Multiline Mode Right Prompt**
+
+For the purposes of the `Compact` settings, the segments within the **Right Prompt** are considered to run "right-to-left", i.e.:
+
+* The **right-most** segment is considered to be the `"first"` segment, while the **left-most** segment is considered to be the `"last"`
+* The space to the **right** of the separator character is considered to be `"before"`, while the space to the **left** is considered to be `"after"`
