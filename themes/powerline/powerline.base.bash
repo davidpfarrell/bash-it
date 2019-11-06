@@ -246,6 +246,7 @@ function __powerline_prompt_command {
     __powerline_left_last_segment_padding
   fi
 
+  [[ -n "${LEFT_PROMPT}" ]] && [[ -n "${POWERLINE_LEFT_LAST_SEGMENT_PROMPT_CHAR}" ]] && LEFT_PROMPT+="$(set_color - ${LAST_SEGMENT_COLOR})${POWERLINE_LEFT_LAST_SEGMENT_PROMPT_CHAR}${normal}"
   [[ -n "${LEFT_PROMPT}" ]] && LEFT_PROMPT+="$(set_color ${LAST_SEGMENT_COLOR} -)${separator_char}${normal}"
 
   if [[ "${POWERLINE_COMPACT_PROMPT}" -eq 0 ]]; then
