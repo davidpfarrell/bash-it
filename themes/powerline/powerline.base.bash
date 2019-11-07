@@ -246,8 +246,14 @@ function __powerline_prompt_command {
     __powerline_left_last_segment_padding
   fi
 
-  [[ -n "${LEFT_PROMPT}" ]] && [[ -n "${POWERLINE_LEFT_LAST_SEGMENT_PROMPT_CHAR}" ]] && LEFT_PROMPT+="$(set_color - ${LAST_SEGMENT_COLOR})${POWERLINE_LEFT_LAST_SEGMENT_PROMPT_CHAR}${normal}"
-  [[ -n "${LEFT_PROMPT}" ]] && LEFT_PROMPT+="$(set_color ${LAST_SEGMENT_COLOR} -)${separator_char}${normal}"
+  # By default we try to match the prompt to the adjacent segment's background color,
+  # but when part of the prompt exists within that segment, we instead match the foreground color.
+  local prompt_color="$(set_color ${LAST_SEGMENT_COLOR} -)"
+  if [[ -n "${LEFT_PROMPT}" ]] && [[ -n "${POWERLINE_LEFT_LAST_SEGMENT_PROMPT_CHAR}" ]]; then
+    LEFT_PROMPT+="$(set_color - ${LAST_SEGMENT_COLOR})${POWERLINE_LEFT_LAST_SEGMENT_PROMPT_CHAR}"
+    prompt_color="${normal}"
+  fi
+  [[ -n "${LEFT_PROMPT}" ]] && LEFT_PROMPT+="${prompt_color}${separator_char}${normal}"
 
   if [[ "${POWERLINE_COMPACT_PROMPT}" -eq 0 ]]; then
     LEFT_PROMPT+=" "
