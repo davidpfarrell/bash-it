@@ -7,8 +7,8 @@ A colorful theme, where shows a lot information about your shell session.
 * Current path
 * Current username and hostname
 * Current time
-* Current dirstack level (`pushd` / `popd`)
 * Current shell level
+* Current dirstack level (`pushd` / `popd`)
 * Current history number
 * Current command number
 * An indicator when connected by SSH
@@ -60,8 +60,8 @@ The contents of the prompt can be "reordered", all the "segments" (every piece o
 * `user_info` - Current user
 * `wd` - Working directory, like `cwd` but doesn't show the full folder
   hierarchy, only the directory you're currently in.
-* `dirstack` - Show the current dirstack level (based on `DIRSTACK` environment variable), but only if the stack is not empty
 * `shlvl` - Show the current shell level (based on `SHLVL` environment variable), but only if you are not in root shell
+* `dirstack` - Show the current dirstack level (based on `DIRSTACK` environment variable), but only if the stack is not empty
 * `history_number` - Show current history number
 * `command_number` - Show current command number
 
